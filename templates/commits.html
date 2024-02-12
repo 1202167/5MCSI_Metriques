@@ -17,8 +17,8 @@
       google.charts.load('current', { packages: ['corechart'] });
       function drawChart(dataArray) {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Date de Commit');
-            data.addColumn('number', 'Nombre de Commits');
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Valeur');
 
             dataArray.forEach(function (row) {
                 data.addRow(row);
@@ -41,12 +41,9 @@
             const dataArray = [];
 
             commits.forEach(commit => {
-                // Extrait la date complète du commit
                 const fullDate = commit.commit.author.date;
-                // Convertit cette date en un format lisible
                 const date = new Date(fullDate);
                 const dateString = date.toISOString();
-                // Ajoute la date et un nombre de commits de 1 pour chaque commit au tableau
                 dataArray.push([dateString, 1]);
             });
 
