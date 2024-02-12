@@ -18,10 +18,11 @@
         var options = {
           title: 'Évolution des températures de Paris pour les 16 prochains jours',
           legend: { position: 'none' },
+          vAxis: { title: 'Température (°C)' }
         };
 
         var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        chart.draw(dataTable, options);
 
         fetch('/paris/')
         .then(response => response.json())
@@ -30,7 +31,8 @@
       }
     </script>
   </head>
+  
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div"></div>
   </body>
 </html>
