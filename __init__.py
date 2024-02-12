@@ -13,7 +13,7 @@ def hello_world():
 
 @app.route("/contact/")
 def MaPremiereAPI():
-    return render_template("svp.html")
+    return render_template("svp.php")
 
 @app.route("/paris/")
 def meteo():
