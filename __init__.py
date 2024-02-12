@@ -6,14 +6,14 @@ from urllib.request import urlopen
 import sqlite3
                                                                                                                                        
 app = Flask(__name__)                                                                                                                  
-
+                                                                                                                                       
 @app.route('/')
 def hello_world():
     return render_template('hello.html')
 
 @app.route("/contact/")
 def MaPremiereAPI():
-    return "<h2>Ma page de contact</h2>
+    return "<h2>Ma page de contact</h2>"
 
 @app.route('/paris/')
 def meteo():
@@ -23,7 +23,7 @@ def meteo():
     results = []
     for list_element in json_content.get('list', []):
         dt_value = list_element.get('dt')
-        temp_day_value = list_element.get('temp', {}).get('day') - 273.15 # Conversion de Kelvin en °c 
+        temp_day_value = list_element.get('temp', {}).get('day') - 273.15 # Conversion de Kelvin en Â°c 
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
 
@@ -31,8 +31,9 @@ def meteo():
 def mongraphique():
     return render_template("graphique.html")
 
+@app.route("/histogramme/")
+def monhisto():
+    return render_template("histo.html")
+
 if __name__ == "__main__":
   app.run(debug=True)
-
-#commentaire pour commit
-#commentaire pour commit
