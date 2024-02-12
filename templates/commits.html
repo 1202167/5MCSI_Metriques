@@ -15,6 +15,7 @@
     <div id="chart_div"></div>
     <script>
       google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         fetchData().then(commitData => {
           const data = new google.visualization.DataTable();
