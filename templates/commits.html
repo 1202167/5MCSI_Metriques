@@ -25,13 +25,12 @@
             });
 
             var options = {
-                title: 'Commits par Timestamp',
-                hAxis: { title: 'Timestamp', slantedText: true, slantedTextAngle: 45 },
-                vAxis: { title: 'Nombre de Commits' },
+                title: 'Commits par minute',
+                minValue: 0,
                 legend: 'none'
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
 
